@@ -20,12 +20,19 @@ class Todo(db.Model):
 
 @app.route("/")
 def hello_world():
-   return render_template("index.html")
+   todo=Todo(title="first todo",desc="description")
+   db.session.add(todo)
+   db.session.commit()
+   alltodo=Todo.query.all()
+   print(alltodo)
+   return render_template("index.html",alltodo=alltodo)
     #return "<p>Hello, World!</p>"
 
-@app.route("/products")
-def products():
-    return "<p>thhs is products page</p>"
+@app.route("/show")
+def show():
+    alltodo=Todo.query.all()
+    print(alltodo)
+    return "<p>thhs is all todo page</p>"
 
 if __name__ =="__main__":
     app.run(debug=True)
