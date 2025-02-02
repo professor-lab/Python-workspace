@@ -70,13 +70,16 @@
               </tr>
             </thead>
             <tbody>
-              jfor  
+              {% for todo in alltodo %}
+                
+              
               <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>{{todo.title}}</td>
+                <td>{{todo.desc}}</td>
+                <td>{{todo.date_created}}</td>
               </tr>
+              {% endfor %}  
               
             </tbody>
           </table>
