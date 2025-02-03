@@ -45,7 +45,7 @@
       </nav>
       
       <div class="container mb-3">
-        <form>
+        <form action="/" method="POST">
             <div class="mb-3">
               <label for="title" class="form-label">Todos title</label>
               <input type="text" class="form-control" id="title" aria-describedby="emailHelp">
@@ -72,7 +72,7 @@
             <tbody>
               {% for todo in alltodo %}              
               <tr>
-                <th scope="row">{{todo.sno}}</th>
+                <th scope="row">{{loop.index}}</th>
                 <td>{{todo.title}}</td>
                 <td>{{todo.desc}}</td>
                 <td>{{todo.date_created}}</td>
