@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///anna.db'
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///todo.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATION']=False
 db=SQLAlchemy(app)
 app.app_context().push()
@@ -21,14 +21,16 @@ class Todo(db.Model):
 @app.route("/",methods=['GET','POST'])
 def hello_world():
    if request.method=='POST':
-       print(request.form['title'])
-   todo=Todo(title="first todo",desc="description")
-   db.session.add(todo)
-   db.session.commit()
+       title=request.form['title']
+       desc=request.form['desc']
+       todo=Todo(title=title,desc=desc)
+       db.session.add(todo)
+       db.session.commit()
+
    alltodo=Todo.query.all()
    print(alltodo)
    return render_template("index.html",alltodo=alltodo)
-    #return "<p>Hello, World!</p>"
+   
 
 @app.route("/show")
 def show():
