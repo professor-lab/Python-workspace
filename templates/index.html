@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}   {% endblock title %}
+{% block title %} Home {% endblock title %}
 {% block body %}
 
       <div class="container mb-3 my-3 card border border-primary" >
@@ -25,6 +25,7 @@
                 <th scope="col">title</th>
                 <th scope="col">Description</th>
                 <th scope="col">time</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -34,6 +35,7 @@
                 <td>{{todo.title}}</td>
                 <td>{{todo.desc}}</td>
                 <td>{{todo.date_created}}</td>
+                <td><a href="/Delete/{{todo.sno}}" class="btn btn-outline-info">update</a></td>
               </tr>
               {% endfor %}  
               
