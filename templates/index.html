@@ -29,18 +29,24 @@
               </tr>
             </thead>
             <tbody>
-              {% for todo in alltodo %}              
-              <tr>
-                <th scope="row">{{loop.index}}</th>
-                <td>{{todo.title}}</td>
-                <td>{{todo.desc}}</td>
-                <td>{{todo.date_created}}</td>
-                <td>
-                  <a href="/update/{{todo.sno}}" class="btn btn-outline-dark btn-sm mx-1">update</a>
-                  <a href="/delete/{{todo.sno}}" class="btn btn-outline-dark btn-sm mx-1">Delete</a>
-                </td>
-              </tr>
-              {% endfor %}  
+
+              {% if alltodo|length==0 %}
+                     No record
+              {% else %}
+                  {% for todo in alltodo %}              
+                  <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{todo.title}}</td>
+                    <td>{{todo.desc}}</td>
+                    <td>{{todo.date_created}}</td>
+                    <td>
+                      <a href="/update/{{todo.sno}}" class="btn btn-outline-dark btn-sm mx-1">update</a>
+                      <a href="/delete/{{todo.sno}}" class="btn btn-outline-dark btn-sm mx-1">Delete</a>
+                    </td>
+                  </tr>
+                  {% endfor %} 
+              {% endif %}
+               
               
             </tbody>
           </table>
