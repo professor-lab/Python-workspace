@@ -37,9 +37,14 @@ def update(sno):
     if request.method=='POST':
        title=request.form['title']
        desc=request.form['desc']
-       todo=Todo(title=title,desc=desc)
+       todo=Todo.query.filter_by(sno=sno).first()
+       todo.title=title
+       todo.desc=desc
        db.session.add(todo)
        db.session.commit()
+
+    todo=Todo.query.filter_by(sno=sno).first()
+    return render_template("update.html",todo=todo)
     
      
    
