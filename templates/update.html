@@ -16,42 +16,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
       </div>
-      <div class="container my-3">
-        <h2>Todos List</h2>
-        
-              {% if alltodo|length==0 %}
-                     No record
-              {% else %}
-                  {% for todo in alltodo %} 
-                  <table class="table  table-bordered border-dark">
-                    <thead>
-                      <tr>
-                        <th scope="col">srn</th>
-                        <th scope="col">title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">time</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>             
-                  <tr>
-                    <th scope="row">{{loop.index}}</th>
-                    <td>{{todo.title}}</td>
-                    <td>{{todo.desc}}</td>
-                    <td>{{todo.date_created}}</td>
-                    <td>
-                      <a href="/update/{{todo.sno}}" class="btn btn-outline-dark btn-sm mx-1">update</a>
-                      <a href="/delete/{{todo.sno}}" class="btn btn-outline-dark btn-sm mx-1">Delete</a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-                  {% endfor %} 
-              {% endif %}
-           
-
-      </div>
-  
+      
         
 {% endblock body %}
 
