@@ -26,8 +26,7 @@ def hello_world():
        todo=Todo(title=title,desc=desc)
        db.session.add(todo)
        db.session.commit()
-       return redirect("/")
-
+       
    alltodo=Todo.query.all()
    print(alltodo)
    return render_template("index.html",alltodo=alltodo)
@@ -43,6 +42,8 @@ def update(sno):
        todo.desc=desc
        db.session.add(todo)
        db.session.commit()
+       return redirect("/")
+
 
     todo=Todo.query.filter_by(sno=sno).first()
     return render_template("update.html",todo=todo)
