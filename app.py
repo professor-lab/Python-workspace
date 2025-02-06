@@ -32,7 +32,7 @@ def hello_world():
    return render_template("index.html",alltodo=alltodo)
    
 
-@app.route("/update/<int:sno>")
+@app.route("/update/<int:sno>",methods=['GET','POST'])
 def update(sno):
     if request.method=='POST':
        title=request.form['title']
