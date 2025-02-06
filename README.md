@@ -1,2 +1,2 @@
-# 8anna
-8anna first flask project
+# Mytodos
+Mytodos first flask project with sqlalchemy
