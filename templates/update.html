@@ -4,7 +4,7 @@
 
       <div class="container mb-3 my-3 card border border-primary" >
         <h2>update todo</h2>
-        <form action="/" method="POST" class="m-2">
+        <form action="/update/{{todo.sno}}" method="POST" class="m-2">
             <div class="mb-3">
               <label for="title" class="form-label">Todos title</label>
               <input type="text" class="form-control"  value="{{todo.title}}" name="title" id="title" aria-describedby="emailHelp" required>
