@@ -26,6 +26,7 @@ def hello_world():
        todo=Todo(title=title,desc=desc)
        db.session.add(todo)
        db.session.commit()
+       return redirect("/")
 
    alltodo=Todo.query.all()
    print(alltodo)
