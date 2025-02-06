@@ -34,8 +34,14 @@ def hello_world():
 
 @app.route("/update/<int:sno>")
 def update(sno):
-     todo=Todo.query.filter_by(sno=sno).first()
-     return render_template("update.html",todo=todo)
+    if request.method=='POST':
+       title=request.form['title']
+       desc=request.form['desc']
+       todo=Todo(title=title,desc=desc)
+       db.session.add(todo)
+       db.session.commit()
+    
+     
    
 
 @app.route("/delete/<int:sno>")
