@@ -3,12 +3,18 @@
 {% block body %}
 
 <div class="container mb-3 my-3 card border border-primary">
-  
-</div>
-<div class="container my-3">
-  <h2> List</h2>
-  
-
+    <form action="/" method="POST" class="m-2">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
+          <label for="Password" class="form-label">Password</label>
+          <input type="Password" class="form-control" name="Password" id="Password" required>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
 </div>
 
 

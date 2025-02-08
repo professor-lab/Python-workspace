@@ -6,14 +6,14 @@ app=Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/register',method=['GET','POST'])
+@app.route('/register',methods=['GET','POST'])
 def register():
     if request.method == 'POST':
         #reuest handal
         pass   
     return render_template("register.html")
 
-@app.route('/login',method=['GET','POST'])
+@app.route('/login',methods=['GET','POST'])
 def login():
     if request.method == 'POST':
         pass
