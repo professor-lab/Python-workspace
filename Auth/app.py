@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+import bcrypt
 
 
 app=Flask(__name__)
@@ -10,6 +11,13 @@ class User(db.Model):
     id=db.Column(db.integer,primary_key=True)
     name=db.Column(db.String(100),nullable=False)
     email=db.Column(db.String(100),unique=True)
+    password=db.Column(db.string(100))
+
+    def __init__(self,email,password):
+        self.email=email
+        self.password=bcrypt.haspw(password.encode('utf-8'),bcrypt.getsalt()).decode
+        super().__init__()
+
 
 
 @app.route('/')
