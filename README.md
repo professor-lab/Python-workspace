@@ -1,2 +1,1 @@
-# Mytodos
-Mytodos first flask project with sqlalchemy
+# Python Workplace Project flask project with sqlalchemy
