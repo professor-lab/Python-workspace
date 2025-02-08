@@ -1,10 +1,19 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app=Flask(__name__)
 
 @app.route('/')
 def index():
     return render_template("index.html")
+
+@app.route('/register',method=['GET','POST'])
+def register():
+    if request.method == 'POST':
+        #reuest handal
+        pass   
+    return render_template("register.html")
+    
+
 
 
 if __name__ == '__main__':
