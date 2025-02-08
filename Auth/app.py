@@ -12,6 +12,11 @@ def register():
         #reuest handal
         pass   
     return render_template("register.html")
+@app.route('/login',method=['GET','POST'])
+def login():
+    if request.method == 'POST':
+        pass
+    return render_template('login.html')
     
 
 
