@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block body %}
+
+<div class="container mb-3 my-3 card border border-primary">
+    <form action="/" method="POST" class="m-2">
+        <div class="mb-3">
+          <label for="title" class="form-label"></label>
+          <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
+          <label for="desc" class="form-label">Todos Description</label>
+          <input type="text" class="form-control" name="desc" id="desc" required>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+<div class="container my-3">
+  <h2> List</h2>
+  
+
+</div>
+
+
+{% endblock body %}
