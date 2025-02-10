@@ -6,6 +6,7 @@ import bcrypt
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///auth.db'
 db=SQLAlchemy(app)
+app.secret_key='secret_key'
 
 class User(db.Model):
     id=db.Column(db.Integer,primary_key=True)
