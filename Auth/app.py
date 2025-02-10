@@ -15,7 +15,7 @@ class User(db.Model):
 
     def __init__(self,email,password):
         self.email=email
-        self.password=bcrypt.haspw(password.encode('utf-8'),bcrypt.getsalt()).decode
+        self.password=bcrypt.haspw(password.encode('utf-8'),bcrypt.getsalt()).decode('utf-8')
         super().__init__()
 
 
