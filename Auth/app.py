@@ -13,15 +13,17 @@ class User(db.Model):
     email=db.Column(db.String(100),unique=True)
     password=db.Column(db.string(100))
 
-    def __init__(self,email,password):
+    def __init__(self,name,email,password):
+        self.name=name
         self.email=email
         self.password=bcrypt.haspw(password.encode('utf-8'),bcrypt.getsalt()).decode('utf-8')
        
-       
-    def check_password(self,password):
-        return bcrypt.chekpw(password.encod('utf-8'),self.password)
 
-    
+    def check_password(self,password):
+        return bcrypt.chekpw(password.encod('utf-8'),self.password.encode('utf-8'))
+
+with app.app_context():
+    db.create_all()   
 
 
 
