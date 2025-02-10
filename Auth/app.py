@@ -68,7 +68,11 @@ def dashboard():
         user=User.query.filter_by(email=session['email']).first()
         return render_template('dashboard.html',user=user)
     return redirect('/login')
-    
+
+@app.route('/logout')
+def logout():
+    session.pop('email',None)
+    return redirect('/login')
 
 
 
