@@ -16,7 +16,12 @@ class User(db.Model):
     def __init__(self,email,password):
         self.email=email
         self.password=bcrypt.haspw(password.encode('utf-8'),bcrypt.getsalt()).decode('utf-8')
-        super().__init__()
+       
+       
+    def check_password(self,password):
+        return bcrypt.chekpw(password.encod('utf-8'),self.password)
+
+    
 
 
 
