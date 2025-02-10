@@ -61,9 +61,11 @@ def login():
             return redirect('/dashboard')
         else:
             return render_template('login.html', error='invalid user')
-
-        
+              
     return render_template('login.html')
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
     
 
 
