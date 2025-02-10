@@ -52,7 +52,6 @@ def login():
     if request.method == 'POST':
         email=request.form['email']
         password=request.form['password']
-
         user=User.query.filter_by(email=email).first()
 
         if user and user.check_password(password):
