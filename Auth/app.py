@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import bcrypt
 
@@ -34,6 +34,14 @@ def index():
 @app.route('/register',methods=['GET','POST'])
 def register():
     if request.method == 'POST':
+        name=request.form['name']
+        email=request.form['email']
+        password=request.form['password']
+
+        new_user=User(name=name,email=email,password=password)
+        db.session.add(new_user)
+        db.session.commit()
+        return redirect('login')
         #reuest handal
         pass   
     return render_template("register.html")
