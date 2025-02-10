@@ -56,8 +56,7 @@ def login():
 
         if user and user.check_password(password):
             session['name']=user.name
-            session['email']=user.email
-            session['password']=user.password
+            session['email']=user.email            
             return redirect('/dashboard')
         else:
             return render_template('login.html', error='invalid user')
@@ -66,7 +65,8 @@ def login():
 @app.route('/dashboard')
 def dashboard():
     if session['name']:
-        return render_template('dashboard.html')
+        user=User.query.filter_by(email=session['email']).first()
+        return render_template('dashboard.html',user=user)
     return redirect('/login')
     
 
