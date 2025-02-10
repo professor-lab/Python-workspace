@@ -21,7 +21,7 @@ class User(db.Model):
        
 
     def check_password(self,password):
-        return bcrypt.chekpw(password.encod('utf-8'),self.password.encode('utf-8'))
+        return bcrypt.checkpw(password.encod('utf-8'),self.password.encode('utf-8'))
 
 with app.app_context():
     db.create_all()   
