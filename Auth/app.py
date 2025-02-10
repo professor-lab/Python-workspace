@@ -58,8 +58,11 @@ def login():
             session['name']=user.name
             session['email']=user.email
             session['password']=user.password
+            return redirect('/dashboard')
+        else:
+            return render_template('login.html', error='invalid user')
 
-        pass
+        
     return render_template('login.html')
     
 
