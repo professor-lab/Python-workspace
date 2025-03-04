@@ -27,6 +27,6 @@ def main():
 			print("result: ",cal.div(a,b))
 		else:
 			print("invalid choice")
-if if __name__ == '__main__':
+if __name__ == '__main__':
 	main()
 		
